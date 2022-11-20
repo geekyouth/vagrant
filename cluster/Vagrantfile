@@ -1,0 +1,51 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  (1..4).each do |i|
+    
+    #定义节点变量
+    config.vm.define "node#{i}" do |node|
+   
+      # box配置
+      node.vm.box = "centos/7"
+      # 设置虚拟机的主机名
+      node.vm.hostname = "hadoop#{i}"
+      # 设置虚拟机的IP
+      node.vm.network "public_network", bridge: [
+        "wlp3s0",
+        "enp4s0f1",
+      ]
+
+      node.vm.allow_hosts_modification = true
+      node.vm.box_check_update = false
+      node.vm.provision "shell", inline: <<-SHELL
+        # https://teamsmiley.github.io/2018/03/17/vagrant-ssh-root/
+        # root password set
+        sudo -s
+        echo -e "123456\n123456" | passwd
+        # root login allow
+        sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config;
+        sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config;
+        systemctl restart sshd;
+
+        yum install -y https://repo.ius.io/ius-release-el7.rpm \
+        https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
+        wget net-tools
+        ifconfig
+      SHELL
+
+      # VirtaulBox相关配置
+      node.vm.provider "virtualbox" do |v|
+          # 设置虚拟机的名称
+          v.name = "node#{i}"
+
+          # 设置虚拟机的内存大小
+          v.memory = 4096
+
+          # 设置虚拟机的CPU个数
+          v.cpus = 2
+      end
+    end
+  end
+end
