@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - debug: msg="only on CentOS-7."
+      when: ansible_distribution == "CentOS" and ansible_distribution_major_version|int >=6
+
+# ansible-playbook ./test-when.yaml
+# https://docs.ansible.com/ansible/2.4/playbooks_conditionals.html#the-when-statement

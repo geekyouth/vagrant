@@ -21,7 +21,11 @@ Vagrant.configure("2") do |config|
     sed  -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config;
 
     systemctl restart sshd;
-    # reboot;
+
+    # disable SELINUX
+    setenforce 0;
+    sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config;
+
   SHELL
 
   config.vm.allow_hosts_modification = true

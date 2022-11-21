@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: give users access to multiple databases
+      shell: echo "name={{ item.0 }} priv={{ item.1 }}.*:ALL append_privs=yes password=foo"
+      with_nested:
+        - [ 'alice', 'bob' ]
+        - [ 'clientdb', 'employeedb', 'providerd' ]
