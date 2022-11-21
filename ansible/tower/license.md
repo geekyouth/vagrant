@@ -2,6 +2,9 @@
 <https://ttpc.asia/archives/82/>
 - docker方式快速安装ansible-tower+破解host限制_高可用/自动化_梦绘设计
 <https://mhsj.net/213.html>
+- Ansible-Tower--安装配置及破解 - 运维人在路上 - 博客园
+  <https://www.cnblogs.com/hujinzhong/p/12172903.html>
+- 
 
 ```shell
 [root@c4dedbb936aa ~]# ll /var/lib/awx/venv/awx/lib/python3.6/site-packages/tower_license
