@@ -11,11 +11,11 @@ https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
 git236;
 
 git clone https://github.com/geekyouth/vagrant.git;
-cd vagrant; ls alh;
+cd ./vagrant; ls -alh;
 
-cd vagrant_cluster/; ls -alh;
+cd ./vagrant_cluster/; ls -alh;
 #cat Vagrantfile;
 vargant up; vargant status;
 
 #################################################
-# curl -sL https://raw.githubusercontent.com/geekyouth/vagrant/main/start.sh | bash
+# curl -sSL https://raw.githubusercontent.com/geekyouth/vagrant/main/start.sh | sh -x
