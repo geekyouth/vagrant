@@ -26,15 +26,36 @@ git clone https://github.com/geekyouth/vagrant.git
 cd ./vagrant
 ls -alh
 
+vagrant -v
+if [[ $? == 0 ]]; then
+  echo "Vagrant is already installed"
+else
+  echo "Installing Vagrant"
+  yum install -y yum-utils
+  yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+  yum -y install vagrant
+fi
+
 cd ./cluster
 ls -alh
 
-echo #################################################
+echo "#################################################"
 cat Vagrantfile
-echo #################################################
+echo "#################################################"
 
 vagrant up
 vagrant status
 
 #################################################
 # curl -sSL https://raw.githubusercontent.com/geekyouth/vagrant/main/start.sh | sh -x
+
+#################################################
+#Current machine states:
+#
+#hadoop81                  running (virtualbox)
+#hadoop82                  running (virtualbox)
+#hadoop83                  running (virtualbox)
+#hadoop84                  running (virtualbox)
+
+# 销毁：
+# vagrant destroy -f

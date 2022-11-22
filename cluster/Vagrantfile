@@ -23,6 +23,10 @@ Vagrant.configure("2") do |config|
       hadoop.vm.disk :disk, name: "SSD", size: "100GB"
 
       hadoop.vm.provision "shell", inline: <<-SHELL
+        # disable selinux
+        setenforce 0
+        sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
+
         # https://teamsmiley.github.io/2018/03/17/vagrant-ssh-root/
         # root password set
         sudo -s;
