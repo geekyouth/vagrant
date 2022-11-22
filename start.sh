@@ -10,6 +10,11 @@ https://repo.ius.io/ius-release-el7.rpm \
 https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
 git236;
 
+if [[ -d "vagrant" ]];then
+  echo "vagrant directory already exists, backuping...";
+  mv -f vagrant vagrant.bak;
+fi
+
 git clone https://github.com/geekyouth/vagrant.git;
 cd ./vagrant; ls -alh;
 
