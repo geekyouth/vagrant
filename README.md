@@ -3,6 +3,11 @@ vagrant 批量部署集群
 快速体验：
 ```shell
 # 在 linux 机器执行以下命令，目前只兼容 centos7
+# 强烈要求使用科学上网环境！！！
+# 强烈要求使用科学上网环境！！！
+# 强烈要求使用科学上网环境！！！
+# 科学上网环境部署：https://github.com/juewuy/ShellClash
+
 curl -sSL https://raw.githubusercontent.com/geekyouth/vagrant/main/start.sh | sh -x
 ```
 
