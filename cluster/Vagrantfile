@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  (81..84).each do |i|
+  (81..83).each do |i|
 
     #定义节点变量
     config.vm.define "hadoop#{i}" do |hadoop|
