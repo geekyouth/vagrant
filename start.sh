@@ -43,7 +43,23 @@ echo "#################################################"
 cat Vagrantfile
 echo "#################################################"
 
-vagrant plugin install vagrant-disksize
+size=$(vagrant plugin list|grep -c vagrant-disksize)
+if [[ $size == 0 ]]; then
+  echo "Installing vagrant-disksize plugin"
+  vagrant plugin install vagrant-disksize
+fi
+
+systemctl status vboxdrv
+if [[ $? == 0 ]]; then
+  echo "VirtualBox is already installed"
+else
+  echo "Installing VirtualBox"
+  yum install -y kernel-devel kernel-headers make patch gcc perl
+  wget https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo -P /etc/yum.repos.d
+  yum install -y VirtualBox-7.0
+  sudo /sbin/vboxconfig
+  systemctl status vboxdrv
+fi
 
 vagrant up
 vagrant status
