@@ -18,7 +18,7 @@ fi
 git clone https://github.com/geekyouth/vagrant.git;
 cd ./vagrant; ls -alh;
 
-cd ./vagrant_cluster/; ls -alh;
+cd ./cluster; ls -alh;
 #cat Vagrantfile;
 vargant up; vargant status;
 
