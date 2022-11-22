@@ -19,7 +19,7 @@ fi
 
 if [[ -d "vagrant" ]]; then
   echo "vagrant directory already exists, backuping..."
-  mv -f vagrant vagrant${date +%s}.bak
+  mv -f vagrant vagrant.$(date +%s).bak
 fi
 
 git clone https://github.com/geekyouth/vagrant.git
