@@ -43,6 +43,8 @@ echo "#################################################"
 cat Vagrantfile
 echo "#################################################"
 
+vagrant plugin install vagrant-disksize
+
 vagrant up
 vagrant status
 

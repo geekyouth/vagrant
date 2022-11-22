@@ -1,5 +1,10 @@
 # vagrant
-vagrant 批量部署集群
+vagrant 批量部署集群  
+快速体验：
+```shell
+# 在 linux 机器执行以下命令，目前只兼容 centos7
+curl -sSL https://raw.githubusercontent.com/geekyouth/vagrant/main/start.sh | sh -x
+```
 
 ## 参考：  
 - Vagrant—多节点虚拟机集群搭建_个人文章 - SegmentFault 思否 <https://segmentfault.com/a/1190000019897182>
@@ -30,3 +35,34 @@ vagrant 批量部署集群
 - 这样搭建Spark学习环境效率似乎更高  
   <https://showme.codes/2017-01-31/setup-spark-dev-env/>  
   <https://github.com/bigdata-labs/spark2-hadoop2.6-hbase-labs>
+  
+# DONE:
+- [x] vagrant + virtualbox 一键初始化 hadoop 集群基础环境
+
+# TODO：
+- 集成 hadoop（HDFS+Yarn）
+- 集成 hive（关联 HBase）
+- 集成 HBase
+- 集成 phoenix
+- 集成 spark
+- 集成 dolphinscheduler
+- 集成 HUE
+- 集成 kafka（监控：KnowStreaming）
+- 集成 zookeeper
+- 集成 flink
+- 集成 elasticsearch
+- 集成 kibana
+- 集成 ansible-tower
+- 集成 cloudcanal
+- 集成 flume
+- 集成 sqoop
+- 集成 MongoDB
+- 集成 redis
+- 集成 Kylin
+- 集成 ClickHouse
+- 集成 StarRocks
+- 集成 Drios
+- 集成 DataEase
+- 集成 Atlas
+- 集成 SuperSet
+- 集成 Hudi
