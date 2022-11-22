@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
 
       hadoop.vm.allow_hosts_modification = true
       hadoop.vm.box_check_update = false
-      hadoop.vm.disksize.size = "100GB"
+      hadoop.vm.disk :disk, name: "SSD", size: "100GB"
 
       hadoop.vm.provision "shell", inline: <<-SHELL
         # https://teamsmiley.github.io/2018/03/17/vagrant-ssh-root/
