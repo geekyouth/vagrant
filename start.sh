@@ -4,9 +4,8 @@ sudo -s
 cd
 
 yum install -y \
-  vim net-tools wget htop tcping \
-  https://repo.ius.io/ius-release-el7.rpm \
-  https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  yum-utils epel-release vim net-tools wget htop tcping \
+  https://repo.ius.io/ius-release-el7.rpm
 
 git --version
 if [[ $? == 0 ]]; then
